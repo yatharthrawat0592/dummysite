@@ -22,5 +22,6 @@ jobs:
       - name: Verify HTML folder on remote server
         run: >
            cd /var/www/html
+           ls -a 
 
          
