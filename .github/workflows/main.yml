@@ -18,7 +18,7 @@ jobs:
 
       - name: Copy HTML folder to remote server
         run: >
-          scp -o StrictHostKeyChecking=no -R *
+          scp -o StrictHostKeyChecking=no 
            ubuntu@ec2-13-48-10-172.eu-north-1.compute.amazonaws.com:/var/www/html
       - name: Verify HTML folder on remote server
         run: >
