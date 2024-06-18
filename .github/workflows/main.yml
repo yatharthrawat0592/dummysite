@@ -9,20 +9,13 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      - name: Set up SSH
-        uses: webfactory/ssh-agent@v0.5.3
-        with:
-          ssh-private-key: '${{ secrets.SSH_PRIVATE_KEY }}'
-      - name: Install Apache2 on remote server
+        
+      - name: Install apache server
         run: >
-          ssh -o StrictHostKeyChecking=no -i "private (2).pem"
-          root@67.205.143.235 <<EOF
+           sudo apt update
 
-          apt update
+           sudo apt install -y apache2
 
-          apt install -y apache2
-
-          EOF
       - name: Copy HTML folder to remote server
         run: >
           scp -o StrictHostKeyChecking=no -i "private (2).pem" -r *
@@ -34,6 +27,4 @@ jobs:
 
           cd /var/www/html
 
-          ls
-
-          EOF
+         
