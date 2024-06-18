@@ -18,7 +18,7 @@ jobs:
 
       - name: Copy HTML folder to remote server
         run: >
-          cp -r ./* /var/www/html
+          sudo cp -r ./* /var/www/html
       - name: Verify HTML folder on remote server
         run: >
            cd /var/www/html
