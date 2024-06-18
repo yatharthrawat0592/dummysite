@@ -18,12 +18,12 @@ jobs:
 
       - name: Copy HTML folder to remote server
         run: >
-          scp -o StrictHostKeyChecking=no -i "private (2).pem" -r *
-          root@67.205.143.235:/var/www/html
+          scp -o StrictHostKeyChecking=no -r *
+           ubuntu@ec2-13-48-10-172.eu-north-1.compute.amazonaws.com:/var/www/html
       - name: Verify HTML folder on remote server
         run: >
-          ssh -o StrictHostKeyChecking=no -i "private (2).pem"
-          root@67.205.143.235 <<EOF
+          ssh -o StrictHostKeyChecking=no
+          ubuntu@ec2-13-48-10-172.eu-north-1.compute.amazonaws.com <<EOF
 
           cd /var/www/html
 
