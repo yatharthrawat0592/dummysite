@@ -18,7 +18,8 @@ jobs:
 
       - name: Copy HTML folder to remote server
         run: >
-          sudo cp -r ./* /var/www/html
+          git clone https://github.com/Akshay80/dummysite.git &&
+          sudo cp -r /home/ubuntu/dummysite/* /var/www/html
       - name: Verify HTML folder on remote server
         run: >
            cd /var/www/html
