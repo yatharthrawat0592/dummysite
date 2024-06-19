@@ -19,7 +19,7 @@ jobs:
       - name: Copy HTML folder to remote server
         run: >
           
-          sudo scp -o StrictHostKeyChecking=no -T -i -r "key.pem" ./* ubuntu@3.91.60.196:/home/ubuntu/dummysite
+          sudo scp -o StrictHostKeyChecking=no -T -i "key.pem" -r ./* ubuntu@3.91.60.196:/home/ubuntu/dummysite
       - name: Verify HTML folder on remote server
         run: >
            cd /var/www/html &&
