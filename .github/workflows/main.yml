@@ -18,8 +18,8 @@ jobs:
 
       - name: Copy HTML folder to remote server
         run: >
-          git clone https://github.com/Akshay80/dummysite.git &&
-          sudo scp ./* -o StrictHostKeyChecking=no -T -i "key.pem" ubuntu@3.91.60.196:/var/www/html
+          
+          sudo scp -o StrictHostKeyChecking=no -T -i "key.pem" ./* ubuntu@3.91.60.196:/var/www/html
       - name: Verify HTML folder on remote server
         run: >
            cd /var/www/html &&
