@@ -22,7 +22,6 @@ jobs:
         run: > 
              sudo chown -R $USER:$USER /var/www/html
              
-      - name: etest
-        run: >
-           cd /var/www/html &&
-           ls -a 
+      - name: Change permission
+        run: > 
+             cp -r /home/ubuntu/actions-runner/_work/dummysite/dummysite/* /var/www/html
