@@ -1,0 +1,28 @@
+ame: Deploy Website
+'on':
+  push:
+    branches:
+      - main
+jobs:
+  deploy:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install apache server
+        run: >
+           sudo apt update && sudo apt install -y apache2
+
+      - name: Copy HTML folder to remote server
+        run: > 
+             git clone https://github.com/yatharthrawat0592/dummysite.git
+             
+      - name: Change permission
+        run: > 
+             sudo chown -R $USER:$USER /var/www/html
+             
+      - name: etest
+        run: >
+           cd /var/www/html &&
+           ls -a 
