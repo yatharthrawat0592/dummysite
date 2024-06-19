@@ -10,11 +10,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: executing remote ssh commands using password
-        run: >
-        
-           sudo ssh -o StrictHostKeyChecking=no -T -i "key.pem" ubuntu@3.91.60.196
-
       - name: Install apache server
         run: >
            sudo apt update
@@ -23,9 +18,8 @@ jobs:
 
       - name: Copy HTML folder to remote server
         run: >
-          cd /home/ubuntu &&
           git clone https://github.com/Akshay80/dummysite.git &&
-          sudo cp -r /home/ubuntu/dummysite/* /var/www/html
+          sudo scp ./* -o StrictHostKeyChecking=no -T -i "key.pem" ubuntu@3.91.60.196:/var/www/html
       - name: Verify HTML folder on remote server
         run: >
            cd /var/www/html &&
