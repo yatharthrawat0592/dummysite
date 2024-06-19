@@ -13,7 +13,7 @@ jobs:
       - name: executing remote ssh commands using password
         run: >
         
-           sudo ssh -t -i "key.pem" ubuntu@ec2-3-91-60-196.compute-1.amazonaws.com
+           sudo ssh -T -i "key.pem" ubuntu@ec2-3-91-60-196.compute-1.amazonaws.com
 
       - name: Install apache server
         run: >
